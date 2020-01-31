@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <header>
+      <h1>
+        <%= link_to "Bien Reviews", root_path %>
+      </h1>
+    </header>
+
+    <nav>
+      <%= link_to "Add a review", new_review_path %>
+    </nav>
+
     <%= yield %>
+
+    <footer>
+      ©bienreviews2020
+    </footer>
   </body>
 </html>

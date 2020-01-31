@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
 
   def create
     # This takes information from the form and adds it to the database
-    @review = Review.new(params.require(:review).permit(:title, :body, :score))
+    @review = Review.new(form_params)
 
     # Save the review to the database
     @review.save
@@ -33,6 +33,24 @@ class ReviewsController < ApplicationController
     @review.destroy
     # Redirect to home homepage
     redirect_to root_path
+  end
+
+  def edit
+    # Find individual review to edit review
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    # Find indivdual review
+    @review = Review.find(params[:id])
+    # Update review
+    @review.update(form_params)
+    #redirect to review page
+    redirect_to review_path(@review)
+  end
+
+  def form_params
+    params.require(:review).permit(:title, :body, :score)
   end
 
 end

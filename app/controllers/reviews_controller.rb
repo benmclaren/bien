@@ -2,8 +2,8 @@ class ReviewsController < ApplicationController
 
   def index
     # This is out list page for our reviews
-    price = params[:price]
-    if price.present?
+    @price = params[:price]
+    if @price.present?
       # filter by Price
       @reviews = Review.where(price: @price)
     else

@@ -1,9 +1,22 @@
 <%= form_for @review do |f| %>
 
+  <% if @review.errors.any? %>
+
+    <div class="errors">
+
+      <% @review.errors.full_messages.each do |message| %>
+         <p> <%= message %> </p>
+      <% end %>
+
+    </div>
+
+  <% end %>
+
   <p>
     <%= f.label :title %>
     <%= f.text_field :title %>
   </p>
+
   <p>
     <%= f.label :body %>
     <%= f.text_area :body %>

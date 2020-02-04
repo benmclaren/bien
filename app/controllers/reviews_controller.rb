@@ -11,14 +11,16 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    # This takes information from the form and adds it to the database
+    # This takes information from the form and adds it to the model
     @review = Review.new(form_params)
-
-    # Save the review to the database
-    @review.save
-
-    # Redirect to homepage
-    redirect_to root_path
+    # Check if review can be saved
+    # If it can then save it and redirect to home
+    # If it cannot be saved then stay on same page
+    if @review.save
+      redirect_to root_path
+    else
+      render new
+    end
   end
 
   def show
@@ -37,6 +39,7 @@ class ReviewsController < ApplicationController
 
   def edit
     # Find individual review to edit review
+
     @review = Review.find(params[:id])
   end
 
@@ -44,9 +47,12 @@ class ReviewsController < ApplicationController
     # Find indivdual review
     @review = Review.find(params[:id])
     # Update review
-    @review.update(form_params)
+    if @review.update(form_params)
     #redirect to review page
-    redirect_to review_path(@review)
+      redirect_to review_path(@review)
+    else
+      render "edit"
+    end
   end
 
   def form_params

@@ -4,3 +4,47 @@ $purple: #31234e;
 $pink: #ffc6c6;
 $black: #1e1e1e;
 $orange: #ff551a;
+
+$title: 'PT Serif', serif;
+$body: 'Work Sans', sans-serif;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  background-color: $cream;
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.add-button {
+  font-size: 36px;
+  color: $green;
+  text-decoration: none;
+}
+
+.review {
+  padding-left: 32px;
+  padding-top: 32px;
+  font-size: 36px;
+}
+
+footer {
+  padding-left: 32px;
+  padding-top: 32px;
+}
+
+.show-container {
+  padding-left: 32px;
+  padding-top: 32px;
+}
+
+.actions {
+  padding-top: 32px;
+  color: $green;
+}

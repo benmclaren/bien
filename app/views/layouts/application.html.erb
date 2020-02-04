@@ -4,7 +4,7 @@
     <title>Bien</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif|Work+Sans:400,500,700&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,13 +14,17 @@
         <%= link_to root_path do %>
           <%= image_tag "bien-logo.svg" %>
         <% end %>
+        <div class="add-button">
+          <%= link_to "Add a review", new_review_path %>
+        </div>
     </header>
 
-    <nav>
-      <%= link_to "Add a review", new_review_path %>
-    </nav>
-
     <%= yield %>
+
+
+
+
+
 
     <footer>
       ©bienreviews2020

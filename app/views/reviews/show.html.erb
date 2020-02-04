@@ -14,7 +14,19 @@
 
 <% if @review.ambience.present? %>
   <div class= "ambience">
-    <p>Ambience:</p> <%= @review.ambience %>
+    Ambience: <%= @review.ambience %>
+  </div>
+<% end %>
+
+<% if @review.price.present? %>
+  <div class= "price">
+    Price: <%= @review.price %>
+  </div>
+<% end %>
+
+<% if @review.cuisine.present? %>
+  <div class= "cuisine">
+    Cuisine: <%= @review.cuisine %>
   </div>
 <% end %>
 

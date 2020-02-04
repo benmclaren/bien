@@ -1,3 +1,14 @@
+<% content_for :page_title, "Home" %>
+
+<nav class="filters">
+  <%= link_to "All Prices", root_path %>
+  <%= link_to "£", root_path(price: 1) %>
+  <%= link_to "££", root_path(price: 2) %>
+  <%= link_to "£££", root_path(price: 3) %>
+  <%= link_to "££££", root_path(price: 4) %>
+
+</nav>
+
 <% @reviews.each do |review| %>
   <div class="review">
     <%= link_to review.title, review_path(review)%>

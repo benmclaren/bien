@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to root_path
     else
-      render new
+      render "new"
     end
   end
 
@@ -56,7 +56,7 @@ class ReviewsController < ApplicationController
   end
 
   def form_params
-    params.require(:review).permit(:title, :body, :score)
+    params.require(:review).permit(:title, :restaurant, :body, :ambience, :score)
   end
 
 end

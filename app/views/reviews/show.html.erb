@@ -1,11 +1,22 @@
+<% content_for :page_title, @review.title %>
+
 <div class="show-container">
   <h1>
     <%= @review.title %>
   </h1>
+  <h2>
+    <%= @review.restaurant %>
+  </h2>
 
   <div class= "score">
     <%= @review.score %> /10
   </div>
+
+<% if @review.ambience.present? %>
+  <div class= "ambience">
+    <p>Ambience:</p> <%= @review.ambience %>
+  </div>
+<% end %>
 
   <div class="body">
     <%= simple_format @review.body %>

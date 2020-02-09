@@ -12,6 +12,12 @@
     <%= @review.score %> /10
   </div>
 
+  <% if @review.address.present? %>
+    <div class= "address">
+      Address: <%= @review.address %>
+    </div>
+  <% end %>
+
 <% if @review.ambience.present? %>
   <div class= "ambience">
     Ambience: <%= @review.ambience %>

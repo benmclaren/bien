@@ -1,11 +1,14 @@
 <% content_for :page_title, "Home" %>
 
 <nav class="filters">
-  <%= link_to "All Prices", root_path %>
-  <%= link_to "£", root_path(price: 1) %>
-  <%= link_to "££", root_path(price: 2) %>
-  <%= link_to "£££", root_path(price: 3) %>
-  <%= link_to "££££", root_path(price: 4) %>
+  <%= link_to "All Restaurants", root_path %>
+  <%= link_to "£", root_path(price: 1, cuisine: @cuisine) %>
+  <%= link_to "££", root_path(price: 2, cuisine: @cuisine) %>
+  <%= link_to "£££", root_path(price: 3, cuisine: @cuisine) %>
+
+  <%= link_to "Japanese", root_path(cuisine: "Japanese", price: @price) %>
+  <%= link_to "American", root_path(cuisine: "American", price: @price) %>
+  <%= link_to "Mexican", root_path(cuisine: "Mexican", price: @price) %>
 
 </nav>
 

@@ -3,13 +3,22 @@ class ReviewsController < ApplicationController
   def index
     # This is out list page for our reviews
     @price = params[:price]
+    @cuisine = params[:cuisine]
+
+    # start with all Reviews
+
+    @reviews = Review.all
+
+    # filter by Price
     if @price.present?
-      # filter by Price
-      @reviews = Review.where(price: @price)
-    else
-      # display all reviews
-      @reviews = Review.all
+      @reviews = @reviews.where(price: @price)
     end
+
+    # filter by cuisine
+    if @cuisine.present?
+      @reviews = @reviews.where(cuisine: @cuisine)
+    end
+
   end
 
   def new

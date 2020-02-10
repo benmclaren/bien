@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_09_172740) do
+ActiveRecord::Schema.define(version: 2020_02_10_180825) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "review_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["review_id"], name: "index_comments_on_review_id"
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.string "title"
@@ -28,4 +36,5 @@ ActiveRecord::Schema.define(version: 2020_02_09_172740) do
     t.float "longitude"
   end
 
+  add_foreign_key "comments", "reviews"
 end

@@ -29,6 +29,9 @@ gem "geocoder"
 # better forms
 gem "simple_form"
 
+# nake our filters Active
+gem "active_link_to"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

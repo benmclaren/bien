@@ -10,6 +10,7 @@
   </head>
 
   <body>
+
     <header>
         <%= link_to root_path do %>
           <%= image_tag "bien-logo.svg" %>
@@ -18,9 +19,9 @@
           <%= link_to "Add a review", new_review_path %>
         </div>
     </header>
-
+<main>
     <%= yield %>
-
+</main>
 
 
 
@@ -29,5 +30,6 @@
     <footer>
       ©bienreviews2020
     </footer>
+
   </body>
 </html>

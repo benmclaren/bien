@@ -38,7 +38,7 @@ class ReviewsController < ApplicationController
     # Check if review can be saved
     # If it can then save it and redirect to home
     # If it cannot be saved then stay on same page
-    if @review.save
+    if @review.save!
       redirect_to root_path
     else
       render "new"

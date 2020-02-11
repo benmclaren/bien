@@ -10,14 +10,25 @@
   </head>
 
   <body>
-
     <header>
-        <%= link_to root_path do %>
-          <%= image_tag "bien-logo.svg" %>
+      <nav>
+        <h1>
+          <%= link_to root_path do %>
+            <%= image_tag "bien-logo.svg" %>
+          <% end %>
+        </h1>
+      </nav>
+      <nav>
+        <% if session[:user_id].present? %>
+          <div class="add-button">
+            <%= link_to "Add a review", new_review_path %>
+            <%= link_to "Log out", session_path, method: :delete %>
+          </div>
+        <% else %>
+          <%= link_to "Sign up", new_user_path %>
+          <%= link_to "Login", new_session_path %>
         <% end %>
-        <div class="add-button">
-          <%= link_to "Add a review", new_review_path %>
-        </div>
+      </nav>
     </header>
 <main>
     <%= yield %>

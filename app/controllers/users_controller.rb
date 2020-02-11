@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all 
+    @users = User.all
   end
 
   def new
@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     # if not see form with errors
     @user = User.new(form_params)
     if @user.save
+      # save the session with the user
+      session[:user_id] = @user.id
       redirect_to users_path
     else
       render "new"

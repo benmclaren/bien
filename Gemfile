@@ -35,9 +35,11 @@ gem "geocoder"
 # better forms
 gem "simple_form"
 
-# nake our filters Active
+# make our filters Active
 gem "active_link_to"
 
+# add profanity filter
+gem "profanity_filter"
 
 
 # Reduces boot times through caching; required in config/boot.rb

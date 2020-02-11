@@ -6,12 +6,12 @@
   <div>
     <%= active_link_to "£", root_path(price: 1, cuisine: @cuisine, location: @location), active: { price: 1 } %>
     <%= active_link_to "££", root_path(price: 2, cuisine: @cuisine, location: @location), active: { price: 2 } %>
-    <%=active_link_to "£££", root_path(price: 3, cuisine: @cuisine, location: @location) , active: { price: 3 }%>
+    <%= active_link_to "£££", root_path(price: 3, cuisine: @cuisine, location: @location) , active: { price: 3 }%>
   </div>
 
   <div>
     <%= active_link_to "Japanese", root_path(cuisine: "Japanese", price: @price, location: @location), active: { cuisine: "Japanese"} %>
-    <%=active_link_to "American", root_path(cuisine: "American", price: @price, location: @location), active: { cuisine: "American"} %>
+    <%= active_link_to "American", root_path(cuisine: "American", price: @price, location: @location), active: { cuisine: "American"} %>
     <%= active_link_to "Mexican", root_path(cuisine: "Mexican", price: @price, location: @location), active: { cuisine: "Mexican"} %>
   </div>
 <%# search bar to  search by location and has hidden fields of price and cuisine which the user can select to narrow down search  %>
@@ -31,7 +31,7 @@
       <h2> <%= review.title %> </h2>
       <p>
         <%= review.cuisine %> -
-        <%=  pluralize review.comments.count, "comment" %> 
+        <%=  pluralize review.comments.count, "comment" %>
       </p>
     <% end %>
   </div>

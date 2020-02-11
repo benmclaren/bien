@@ -4,6 +4,7 @@ class Review < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode
+  profanity_filter :body
 
   validates :title, presence: true
   validates :body, length: { minimum: 10 }

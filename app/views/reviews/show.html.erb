@@ -52,11 +52,10 @@
       <p class="posted">
         Posted by
         <% if comment.user.present? %>
-          <%= comment.user.username %>
+          <%= link_to comment.user.username, user_path(comment.user) %>
         <% else %>
           anonymous
         <% end %>
-
       </p>
       <p class="posted">
         Posted <%= time_ago_in_words comment.created_at %> ago

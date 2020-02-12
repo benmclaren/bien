@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+      @user = User.find_by(username: params[:id])
+  end
+
   def new
     # form for adding new user
     @user = User.new
@@ -12,7 +16,7 @@ class UsersController < ApplicationController
   def create
     # take parameters from the form and create a new form
     # create a new user
-    # if its valid and it saves then got to the list users page
+    # if its valid and it saves then go to the list users page
     # if not see form with errors
     @user = User.new(form_params)
     if @user.save
@@ -23,6 +27,7 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+
 
   def form_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)

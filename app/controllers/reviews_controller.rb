@@ -38,6 +38,10 @@ class ReviewsController < ApplicationController
   def create
     # This takes information from the form and adds it to the model
     @review = Review.new(form_params)
+
+    # associate this with the current user. Ther eis always a user becuase of the check_login
+    @review.user = @current_user
+
     # Check if review can be saved
     # If it can then save it and redirect to home
     # If it cannot be saved then stay on same page

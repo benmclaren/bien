@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   # add associtation that has one to many relationship
   has_many :comments, dependent: :destroy
-
+  has_many :bookmarks 
   #add an association to the user
   belongs_to :user
 

@@ -12,38 +12,49 @@
     <%= @review.score %> /10
   </div>
 
+  <div class="user">
+    Posted by
+    <% if @review.user.present? %>
+      <%= link_to @review.user.username, user_path(@review.user) %>
+    <% else %>
+      anonymous
+    <% end %>
+  </div>
+
   <% if @review.address.present? %>
     <div class= "address">
       Address: <%= @review.address %>
     </div>
   <% end %>
 
-<% if @review.ambience.present? %>
-  <div class= "ambience">
-    Ambience: <%= @review.ambience %>
-  </div>
-<% end %>
+  <% if @review.ambience.present? %>
+    <div class= "ambience">
+      Ambience: <%= @review.ambience %>
+    </div>
+  <% end %>
 
-<% if @review.price.present? %>
-  <div class= "price">
-    Price: <%= @review.price %>
-  </div>
-<% end %>
+  <% if @review.price.present? %>
+    <div class= "price">
+      Price: <%= @review.price %>
+    </div>
+  <% end %>
 
-<% if @review.cuisine.present? %>
-  <div class= "cuisine">
-    Cuisine: <%= @review.cuisine %>
-  </div>
-<% end %>
+  <% if @review.cuisine.present? %>
+    <div class= "cuisine">
+      Cuisine: <%= @review.cuisine %>
+    </div>
+  <% end %>
 
-  <div class="body">
-    <%= simple_format @review.body %>
-  </div>
+    <div class="body">
+      <%= simple_format @review.body %>
+    </div>
 
-  <div class="actions">
-    <%= link_to "Edit review", edit_review_path(@review) %>
-    <%= link_to "Delete review", review_path(@review), method: :delete, data: { confirm: "Are you sure?" }  %>
-  </div>
+  <% if @review.user == @current_user %>
+    <div class="actions">
+      <%= link_to "Edit review", edit_review_path(@review) %>
+      <%= link_to "Delete review", review_path(@review), method: :delete, data: { confirm: "Are you sure?" }  %>
+    </div>
+  <% end %>
 
   <h3>Comments</h3>
   <% @review.comments.order("created_at desc").each do |comment| %>

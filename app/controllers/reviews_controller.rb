@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
     # This takes information from the form and adds it to the model
     @review = Review.new(form_params)
 
-    # associate this with the current user. Ther eis always a user becuase of the check_login
+    # associate this with the current user. There is always a user becuase of the check_login
     @review.user = @current_user
 
     # Check if review can be saved
@@ -59,30 +59,43 @@ class ReviewsController < ApplicationController
 
   def destroy
     # Find the individual review
-    @review = Review.find(params[:id])
-    # Destroy
-    @review.destroy
+      @review = Review.find(params[:id])
+        # destroy if they have access
+      if @review.user == @current_user
+        # Destroy
+        @review.destroy
+      end
     # Redirect to home homepage
     redirect_to root_path
   end
 
   def edit
     # Find individual review to edit review
-
     @review = Review.find(params[:id])
+
+    # This says if the review does not equal the current user then redirect to the homepage
+    if @review.user != @current_user
+      redirect_to root_path
+    end
+
   end
 
   def update
     # Find indivdual review
     @review = Review.find(params[:id])
-    # Update review
-    if @review.update(form_params)
-    #redirect to review page
-      redirect_to review_path(@review)
+    if @review.user != @current_user
+      redirect_to root_path
     else
-      render "edit"
+      # Update review
+      if @review.update(form_params)
+      #redirect to review page
+        redirect_to review_path(@review)
+      else
+        render "edit"
+      end
     end
   end
+
 
   def form_params
     params.require(:review).permit(:title, :restaurant, :body, :ambience, :price, :cuisine, :score, :address)

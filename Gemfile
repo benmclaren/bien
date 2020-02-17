@@ -40,6 +40,10 @@ gem "active_link_to"
 # add profanity filter
 gem "profanity_filter"
 
+# user uplaoded images
+gem 'carrierwave', '~> 2.0'
+gem 'mini_magick'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

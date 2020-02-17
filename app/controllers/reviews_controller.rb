@@ -76,8 +76,9 @@ class ReviewsController < ApplicationController
     # This says if the review does not equal the current user then redirect to the homepage
     if @review.user != @current_user
       redirect_to root_path
+    elsif @review.created_at < 1.hour.ago
+      redirect_to review_path(@review)
     end
-
   end
 
   def update
@@ -98,7 +99,7 @@ class ReviewsController < ApplicationController
 
 
   def form_params
-    params.require(:review).permit(:title, :restaurant, :body, :ambience, :price, :cuisine, :score, :address)
+    params.require(:review).permit(:title, :restaurant, :body, :ambience, :price, :cuisine, :score, :address, :photo)
   end
 
 end

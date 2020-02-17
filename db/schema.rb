@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_130026) do
+ActiveRecord::Schema.define(version: 2020_02_17_173849) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "review_id", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_130026) do
     t.string "real_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_admin", default: false
   end
 
   add_foreign_key "bookmarks", "reviews"

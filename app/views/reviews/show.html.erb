@@ -1,6 +1,6 @@
 <% content_for :page_title, @review.title %>
 
-<% if review.photo.present? %>
+<% if @review.photo.present? %>
   <%= image_tag @review.photo.url %>
 <% end %>
 

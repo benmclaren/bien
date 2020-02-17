@@ -28,7 +28,9 @@
 <% @reviews.each do |review| %>
   <div class="review">
     <%= link_to review_path(review) do %>
-      <%= image_tag review.photo.url.thumb %>
+      <% if review.photo.present? %>
+        <%= image_tag review.photo.url.thumb %>
+      <% end %>
       <h2> <%= review.title %> </h2>
       <p>
         <%= review.cuisine %> -

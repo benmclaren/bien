@@ -1,6 +1,8 @@
 <% content_for :page_title, @review.title %>
 
-<%= image_tag @review.photo.url %>
+<% if review.photo.present? %>
+  <%= image_tag @review.photo.url %>
+<% end %>
 
 <div class="show-container">
   <h1>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
+
   resources :reviews do
     resources :comments
     resource :bookmark
@@ -10,5 +11,8 @@ Rails.application.routes.draw do
 
   resource :session
 
-  root "reviews#index"
+  get "about", to: "pages#about"
+  get "terms", to: "pages#terms"
+
+  root "pages#home"
 end

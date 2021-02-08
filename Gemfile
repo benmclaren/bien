@@ -41,7 +41,7 @@ gem "active_link_to"
 gem "profanity_filter"
 
 # user uplaoded images
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'mini_magick'
 
 # add admin panel
